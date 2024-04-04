@@ -1,9 +1,11 @@
 pipeline {
     agent any
     stages {
-        stage ('GIT Checkout'){
+        stage('Git Clone') {
             steps {
-                git changelog: false, poll: false, url: 'git@github.com:SobkoAnna/ci-python-test.git'
+                sshagent(['jenkins_ci_user']) {
+                    sh 'git clone -b ${params.BRANCH_NAME} git@github.com:SobkoAnna/ci-python-test.git'
+                }
             }
         }
         stage('build') {
