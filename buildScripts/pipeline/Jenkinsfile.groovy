@@ -6,6 +6,7 @@ pipeline {
                 sshagent(['jenkins_ci_user']) {
                     sh 'git clone -b ${params.BRANCH_NAME} git@github.com:SobkoAnna/ci-python-test.git'
                 }
+                echo "done"
             }
         }
         stage('build') {
