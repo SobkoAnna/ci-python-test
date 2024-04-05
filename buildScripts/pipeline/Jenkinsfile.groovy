@@ -10,7 +10,6 @@ pipeline {
                         branch: "${branch}"
                     )
                 }
-                echo "done"
             }
         }
         stage('build') {
