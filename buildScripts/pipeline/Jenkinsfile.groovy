@@ -3,8 +3,12 @@ pipeline {
     stages {
         stage('Git Clone') {
             steps {
-                sshagent(['jenkins_ci_user']) {
-                    sh 'git clone -b ${params.BRANCH_NAME} git@github.com:SobkoAnna/ci-python-test.git'
+                script{
+                    git(
+                        url: 'git@github.com:SobkoAnna/ci-python-test.git',
+                        credentialsId: 'jenkins_ci_user',
+                        branch: "${branch}"
+                    )
                 }
             }
         }
