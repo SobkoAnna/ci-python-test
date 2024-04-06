@@ -4,11 +4,12 @@ import pymssql
 
 def connect_to_mssql():
     conn = pymssql.connect(
-       'DRIVER={SQL Server};'
-       "SERVER=EPUAVINW00D5\\SQLEXPRESS;"
-       'DATABASE=AdventureWorks2012;'
-       'UID=Tester_RF;'
-       'PWD=2024Tester;'
+        server='EPUAVINW00D5\\SQLEXPRESS',
+        database='AdventureWorks2012',
+        user='Tester_RF',
+        password='2024Tester',
+        port='1433',
+        host='localhost'
     )
     return conn
 
