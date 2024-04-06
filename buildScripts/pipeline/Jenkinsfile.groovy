@@ -15,13 +15,16 @@ pipeline {
         stage('Install PIP packages') {
             steps {
                 sh "python3 -m venv env"
-                sh ". ./env/bin/activate"
-                sh 'pip install -r requirements.txt'
+                sh '''  . ./env/bin/activate
+                        pip install -r requirements.txt
+                    '''
             }
         }
         stage ('Test'){
             steps {
-                sh 'python unit-test.py'
+                sh ''' . ./env/bin/activate
+                        python unit-test.py
+                    '''
             }
         }
     }
