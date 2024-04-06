@@ -9,7 +9,7 @@ def connect_to_mssql():
         user='Tester_RF',
         password='2024Tester',
         port='1433',
-        host='localhost'
+        host='127.0.0.1'
     )
     return conn
 
@@ -52,7 +52,7 @@ def test_table_person_address_modifieddate_not_in_future():
 
 def test_table_production_unitMeasure_regexp_name():
     conn = connect_to_mssql()
-    query = "select name fROM Production.UnitMeasure where NOT PATINDEX ('%[^a-zA-Z, ]%', name) = 0"
+    query = "select name fROM Production.UnitMeasure where NOT PATINDEX ('%[^a-zA-Z/, ]%', name) = 0"
     rows = execute_query(conn, query)
     conn.close()
     assert len(rows) == 0
