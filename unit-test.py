@@ -1,9 +1,9 @@
 import pytest
-import pyodbc
+import pymssql
 
 
 def connect_to_mssql():
-    conn = pyodbc.connect(
+    conn = pymssql.connect(
        'DRIVER={SQL Server};'
        "SERVER=EPUAVINW00D5\\SQLEXPRESS;"
        'DATABASE=AdventureWorks2012;'
