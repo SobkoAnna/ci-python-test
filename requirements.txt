@@ -1,2 +1,2 @@
-pyodbc == 5.1.0
+pymssql == 2.2.11
 pytest == 8.1.1
