@@ -23,7 +23,7 @@ pipeline {
         stage ('Test'){
             steps {
                 sh ''' . ./env/bin/activate
-                        python unit-test.py
+                        pytest unit-test.py
                     '''
             }
         }
