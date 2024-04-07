@@ -35,7 +35,7 @@ pipeline {
                         sh("git config --global user.name 'SobkoAnna' --replace-all")
                         sh("git pull origin main")
                         sh("git commit -am 'Merged feature branch into main'")
-                        sh("git merge origin/${ghprbSourceBranch}")
+                        sh("git merge main")
                     }
                 }
             }
