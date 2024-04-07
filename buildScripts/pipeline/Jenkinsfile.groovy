@@ -43,7 +43,7 @@ pipeline {
                         
                         if (mergeOutput == 0) {
                             echo "Pull Request successfully merged!"
-                            sh "git push origin master"
+                            sh "git push origin main"
                             def prNumber = "${ghprbPullId}"
                             def apiUrl = "https://api.github.com/repos/owner/repository/pulls/${prNumber}"
                             def requestBody = '{"state": "closed"}'
