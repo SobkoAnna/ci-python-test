@@ -31,11 +31,13 @@ pipeline {
         stage('Merge with Master') {
             steps {
                 script {
-                    sh("git checkout main")
-                    sh("git pull origin master")
-                    sh("git merge origin/${ghprbSourceBranch}")
-                    sh("git commit -am 'Merged feature branch into master'")
-                    sh("git push origin master")
+                    sshagent(credentials: ['jenkins_ci_user']) {
+                        sh("git checkout main")
+                        sh("git pull origin master")
+                        sh("git merge origin/${ghprbSourceBranch}")
+                        sh("git commit -am 'Merged feature branch into master'")
+                        sh("git push origin master")
+                    }
                 }
             }
         }
