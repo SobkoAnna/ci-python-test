@@ -9,7 +9,7 @@ def connect_to_mssql():
         user='Tester_RF',
         password='2024Tester',
         port='1433',
-        host='192.168.0.103'
+        host='192.168.0.110'
     )
     return conn
 
