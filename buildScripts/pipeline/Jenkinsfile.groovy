@@ -7,7 +7,7 @@ pipeline {
                     git(
                         url: 'git@github.com:SobkoAnna/ci-python-test.git',
                         credentialsId: 'jenkins_ci_user',
-                        branch: "${branch}"
+                        branch: "${sha1}"
                     )
                 }
             }
