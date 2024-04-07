@@ -27,23 +27,12 @@ pipeline {
                     '''
             }
         }
-        stage('Add Tag GitHub') {
+        stage('Merge with Main') {
             steps {
                 script {
                     sshagent(credentials: ['jenkins_ci_user']) {
                         sh("git config --global user.email 'annsobko2022@gmail.com'")
                         sh("git config --global user.name 'SobkoAnna' --replace-all")
-                        sh("git tag -l ${JOB_NAME}-${BUILD_NUMBER}")
-                        sh("git tag -a -f -m $BUILD_URL ${JOB_NAME}-${BUILD_NUMBER}")
-                        sh("git push git@github.com:SobkoAnna/ci-python-test.git ${JOB_NAME}-${BUILD_NUMBER}")
-                    }
-                }
-            }
-        }
-        stage('Merge with Main') {
-            steps {
-                script {
-                    sshagent(credentials: ['jenkins_ci_user']) {
                         sh("git checkout main")
                         sh("git pull origin main")
                         sh("git merge origin/${ghprbSourceBranch}")
