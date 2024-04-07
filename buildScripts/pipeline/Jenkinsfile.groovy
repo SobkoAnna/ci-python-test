@@ -7,7 +7,7 @@ pipeline {
                     git(
                         url: 'git@github.com:SobkoAnna/ci-python-test.git',
                         credentialsId: 'jenkins_ci_user',
-                        branch: "${branch}"
+                        branch: "${ghprbSourceBranch}"
                     )
                 }
             }
@@ -33,7 +33,7 @@ pipeline {
                 script {
                     sh("git checkout main")
                     sh("git pull origin master")
-                    sh("git merge origin/${branch}")
+                    sh("git merge origin/${ghprbSourceBranch}")
                     sh("git commit -am 'Merged feature branch into master'")
                     sh("git push origin master")
                 }
