@@ -20,7 +20,6 @@ def execute_query(conn, query):
     cursor.close()
     return rows
 
-
 def test_table_production_document_isfolder():
     conn = connect_to_mssql()
     print("typo")
