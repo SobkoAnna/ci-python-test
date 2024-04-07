@@ -33,11 +33,9 @@ pipeline {
                     sshagent(credentials: ['jenkins_ci_user']) {
                         sh("git config --global user.email 'annsobko2022@gmail.com'")
                         sh("git config --global user.name 'SobkoAnna' --replace-all")
-                        sh("git checkout main")
                         sh("git pull origin main")
-                        sh("git merge origin/${ghprbSourceBranch}")
                         sh("git commit -am 'Merged feature branch into main'")
-                        sh("git push origin main")
+                        sh("git merge origin/${ghprbSourceBranch}")
                     }
                 }
             }
