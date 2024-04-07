@@ -1,7 +1,6 @@
 import pytest
 import pymssql
 
-
 def connect_to_mssql():
     conn = pymssql.connect(
         server='EPUAVINW00D5\\SQLEXPRESS',
