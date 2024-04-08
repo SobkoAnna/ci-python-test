@@ -23,3 +23,6 @@
 ![image](https://github.com/SobkoAnna/ci-python-test/assets/165591482/2c54ba41-46dc-40a3-a1a4-3f53980d42d3)
 
 
+If the test fails for various reasons, it can be restarted by adding the phrase that was added as a trigger
+![image](https://github.com/SobkoAnna/ci-python-test/assets/165591482/6f84b788-4bf8-4980-bbe7-1321ef6664f9)
+![image](https://github.com/SobkoAnna/ci-python-test/assets/165591482/70ac3a61-a027-4e85-8a51-cd31679f556f)
