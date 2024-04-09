@@ -2,6 +2,8 @@ pipeline {
     agent any
     environment {
         accessToken = credentials('kgithub')
+        emailUser = credentials('emailUser')
+        userName = credentials('userName')
     }
     stages {
         stage('Git Clone') {
@@ -34,8 +36,8 @@ pipeline {
             steps {
                 script {
                     sshagent(credentials: ['jenkins_ci_user']) {
-                        sh("git config --global user.email 'annsobko2022@gmail.com'")
-                        sh("git config --global user.name 'SobkoAnna' --replace-all")
+                        sh("git config --global user.email '${email_user}'")
+                        sh("git config --global user.name '${userName}' --replace-all")
                         sh "git checkout main"
                         
                         sh "git pull origin main"
